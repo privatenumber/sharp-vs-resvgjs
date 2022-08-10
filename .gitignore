@@ -1,0 +1,7 @@
+/node_modules
+
+/pngs/**/*.png
+!/pngs/sharp/500px.svg.png
+!/pngs/resvg/500px.svg.png
+
+.DS_Store
