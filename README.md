@@ -35,7 +35,7 @@ sharp is faster by 3.49x
 
 ### resvg-js crashes on too many icons
 
-The number of icons is limited to 400 because when processing too many icons at once, resvg crashes the whole Node.js process:
+The number of icons is [limited to 400](/scripts/benchmark/index.js#L13) because when processing too many icons at once, resvg-js crashes the whole Node.js process:
 
 ```
 $ pnpm benchmark
@@ -48,9 +48,11 @@ fatal runtime error: failed to initiate panic, error 5
 ```
 
 ### rsvg-js doesn't yield expected DPI
-After benchmarking, the resulting PNGs are saved to `pngs/`. When comparing icons between sharp and rsvg, the DPI on sharp is 2400 (as expected), but the DPI on rsvg is 72.
+After benchmarking, the resulting PNGs are saved to `pngs/`. When comparing icons between sharp and rsvg, the DPI on sharp is 2400 (as expected), but the DPI on resvg-js is 72.
+
+Zoom in to compare difference
 
 
-| resvg-js (72 DPI) | sharp (2400 DPI) |
+| resvg-js - 11.1 KB - 72 DPI | sharp - 16.6 KB - 2400 DPI |
 | - | - |
 | <img src="./pngs/resvg/500px.svg.png"> | <img src="./pngs/sharp/500px.svg.png"> |
